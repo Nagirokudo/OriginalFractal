@@ -1,3 +1,4 @@
+int siz = 0;
 public void setup()
 {
 	size(500, 500);
@@ -5,9 +6,14 @@ public void setup()
 public void draw()
 {
 	background(0);
-	strokeWeight(2);
-	stroke((int)(Math.random()*255)+20, (int)(Math.random()*255)+50, (int)(Math.random()*255)+100);
-	fractal(50,400,400);
+	for (int siz = 0; siz < 410; siz++)
+	{
+
+			strokeWeight(2);
+			stroke((int)(Math.random()*255)+25, (int)(Math.random()*255)+70, (int)(Math.random()*255)+80);
+			fractal(width*1/10, height-100, siz);
+	}
+	
 }
 public void fractal(int x, int y, int len)
 {		noFill();
@@ -31,7 +37,7 @@ public void fractal(int x, int y, int len)
 
 		else 
 		{
-			//fractal(x, y, len/2);
+
 			fractal(x+len/2, y, len/2);
 			fractal(x+len/4, y-len/2, len/2);
 		}
